@@ -9,7 +9,7 @@ Ensure you have the following installed on your system
 ### Git
 
 ```
-dnf intall git
+dnf install git
 ```
 
 ### Stow
