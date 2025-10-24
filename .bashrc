@@ -5,6 +5,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+. /etc/profile.d/wezterm.sh
+
 # User specific environment
 if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
@@ -23,3 +25,7 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+
+# aliases
+alias tma="tmux new-session -A -s main"
+

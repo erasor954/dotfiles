@@ -1,4 +1,5 @@
 local wezterm = require("wezterm")
+local shared_state = require("shared_state")
 local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
 
 local function active_tab_icon(tab)
@@ -19,34 +20,6 @@ local function inactive_tab_icon(tab)
 	return padding .. icon_str .. padding
 end
 
-local function get_active_cwd(window, section_name)
-	local cwd_text = ""
-	local tab = window:active_tab()
-
-	if tab then
-		local act_pane = tab:active_pane()
-		if act_pane then
-			local cwd = act_pane.current_working_dir
-			if cwd then
-				local home = os.getenv("HOME")
-				cwd_text = cwd:gsub("file://", "")
-				if home and cwd_text:find(home, 1, true) == 1 then
-					cwd_text = "~" .. cwd_text:sub(#home + 1)
-				end
-			end
-		end
-	end
-
-	if cwd_text ~= "" then
-		-- A custom component must return a table of elements
-		return {
-			{ Text = " " .. wezterm.nerdfonts.md_folder .. " " .. cwd_text .. " " },
-		}
-	end
-
-	-- Return an empty table if no CWD
-	return {}
-end
 -- Tab bar
 tabline.setup({
 	options = {
@@ -89,7 +62,7 @@ tabline.setup({
 		},
 		tabline_x = { "" },
 		tabline_y = { { "" }, padding = { left = 0, right = 0 } },
-		tabline_z = { get_active_cwd },
+		tabline_z = { "domain" },
 	},
 	extensions = {},
 })

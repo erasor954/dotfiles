@@ -1,8 +1,10 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 local io = require("io")
-local tabbar = require("tabbar")
+--local tabline_config = require("tabline_config")
 local remap = require("remap")
+local shared_state = require("shared_state")
+--local bar = require("bar")
 
 -- This table will hold the configuration.
 local config = {}
@@ -21,9 +23,9 @@ local lighttheme = "GruvboxLight"
 -- Tokyo Night
 local darktheme = "Catppuccin Mocha"
 
-local active_theme = darktheme
+shared_state.theme = darktheme
 config.window_background_opacity = 1
-config.color_scheme = active_theme
+config.color_scheme = shared_state.theme
 
 config.font_size = 18
 
@@ -49,19 +51,16 @@ end
 -- function on event toggle-theme - see config.keys
 wezterm.on("toggle-theme", function(window, pane)
 	local overrides = window:get_config_overrides() or {}
+	local tabline = require("tabline_config")
 	if overrides.color_scheme == lighttheme then
-		active_theme = darktheme
+		shared_state.theme = darktheme
 	else
-		active_theme = lighttheme
+		shared_state.theme = lighttheme
 	end
-	overrides.color_scheme = active_theme
+	overrides.color_scheme = shared_state.theme
 	window:set_config_overrides(overrides)
 
-	tabline.setup({
-		options = {
-			theme = active_theme,
-		},
-	})
+	tabline.set_theme(shared_state.theme)
 end)
 
 local mux = wezterm.mux
@@ -84,9 +83,15 @@ table.insert(config.keys, {
 })
 
 -- Tabbar config
-for k, v in pairs(tabbar.config) do
-	config[k] = v
-end
-
+--tabline_config.apply_to_config(config)
+config.window_decorations = "NONE"
+config.hide_tab_bar_if_only_one_tab = true
+config.window_padding = {
+	left = 0,
+	right = 0,
+	top = 0,
+	bottom = 0,
+}
+--bar.apply_to_config(config)
 -- and finally, return the configuration to wezterm
 return config
