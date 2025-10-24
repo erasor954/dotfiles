@@ -1,0 +1,99 @@
+local wezterm = require("wezterm")
+local tabline = wezterm.plugin.require("https://github.com/michaelbrusegard/tabline.wez")
+
+local function active_tab_icon(tab)
+	local idx = tab.tab_index + 1 -- tab_index is 0-based
+	local field_name = "md_numeric_" .. idx .. "_box"
+	local icon = wezterm.nerdfonts[field_name]
+	local icon_str = icon or tostring(ids)
+	local padding = " "
+	return padding .. icon_str
+end
+
+local function inactive_tab_icon(tab)
+	local idx = tab.tab_index + 1 -- tab_index is 0-based
+	local field_name = "md_numeric_" .. idx .. "_box_outline"
+	local icon = wezterm.nerdfonts[field_name]
+	local icon_str = icon or tostring(ids)
+	local padding = " "
+	return padding .. icon_str .. padding
+end
+
+local function get_active_cwd(window, section_name)
+	local cwd_text = ""
+	local tab = window:active_tab()
+
+	if tab then
+		local act_pane = tab:active_pane()
+		if act_pane then
+			local cwd = act_pane.current_working_dir
+			if cwd then
+				local home = os.getenv("HOME")
+				cwd_text = cwd:gsub("file://", "")
+				if home and cwd_text:find(home, 1, true) == 1 then
+					cwd_text = "~" .. cwd_text:sub(#home + 1)
+				end
+			end
+		end
+	end
+
+	if cwd_text ~= "" then
+		-- A custom component must return a table of elements
+		return {
+			{ Text = " " .. wezterm.nerdfonts.md_folder .. " " .. cwd_text .. " " },
+		}
+	end
+
+	-- Return an empty table if no CWD
+	return {}
+end
+-- Tab bar
+tabline.setup({
+	options = {
+		icons_enabled = true,
+		tabs_enabled = true,
+		theme_overrides = {},
+		section_separators = {
+			left = "",
+			right = "",
+		},
+		component_separators = {
+			left = wezterm.nerdfonts.pl_left_soft_divider,
+			right = wezterm.nerdfonts.pl_right_soft_divider,
+		},
+		tab_separators = {
+			left = "",
+			right = "",
+		},
+	},
+	sections = {
+		tabline_a = { " " .. os.getenv("USER") .. " " },
+		tabline_b = { { "" }, padding = { left = 0, right = 0 } },
+		tabline_c = { "" },
+		--[[
+		tab_active = {
+			"index",
+			{ "parent", padding = 0 },
+			"/",
+			{ "cwd", padding = { left = 0, right = 1 } },
+			{ "zoomed", padding = 0 },
+		},
+        --]]
+		tab_active = {
+			active_tab_icon,
+			"process",
+		},
+		tab_inactive = {
+			inactive_tab_icon,
+			{ "process", padding = { left = 0, right = 1 } },
+		},
+		tabline_x = { "" },
+		tabline_y = { { "" }, padding = { left = 0, right = 0 } },
+		tabline_z = { get_active_cwd },
+	},
+	extensions = {},
+})
+
+local M = {}
+M.apply_to_config = tabline.apply_to_config
+return M

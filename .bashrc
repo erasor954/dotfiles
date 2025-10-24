@@ -23,5 +23,3 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
-export OBSIDIAN_USE_WAYLAND=1
