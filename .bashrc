@@ -28,4 +28,5 @@ unset rc
 
 # aliases
 alias tma="tmux new-session -A -s main"
+alias vim="nvim"
 

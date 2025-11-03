@@ -47,6 +47,7 @@ button {
 #battery,
 #power-profiles-daemon,
 #pulseaudio,
+#bluetooth,
 #network,
 #cpu,
 #memory,
@@ -58,6 +59,12 @@ button {
   background-color: #101010;
   padding: 0.5rem 1rem;
   margin: 5px 0;
+}
+
+#bluetooth {
+    font-size: 16px;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 #clock {
