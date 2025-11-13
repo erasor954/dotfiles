@@ -1,13 +1,14 @@
 -- Syntax highlighting
-vim.cmd('syntax on')
+vim.cmd("syntax on")
 
 -- Filetype detection and indentation
-vim.cmd('filetype on')
-vim.cmd('filetype plugin indent on')
+vim.cmd("filetype on")
+vim.cmd("filetype plugin indent on")
 
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.colorcolumn = 80
 
 -- Indentation
 vim.opt.smartindent = true
