@@ -8,7 +8,7 @@ vim.cmd("filetype plugin indent on")
 -- Line numbers
 vim.opt.number = true
 vim.opt.relativenumber = true
-vim.opt.colorcolumn = 80
+vim.opt.colorcolumn = '80'
 
 -- Indentation
 vim.opt.smartindent = true
