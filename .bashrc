@@ -30,3 +30,5 @@ unset rc
 alias tma="tmux new-session -A -s main"
 alias vim="nvim"
 
+alias ll="ls -l"
+alias la="ls -la"
