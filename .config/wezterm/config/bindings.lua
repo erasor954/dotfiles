@@ -15,7 +15,7 @@ end
 
 local keys = {
 	-- misc/useful --
-	{ key = "F1", mods = "NONE", action = "ActivateCopyMode" },
+	{ key = "x", mods = "LEADER", action = "ActivateCopyMode" },
 	{ key = "F2", mods = "NONE", action = act.ActivateCommandPalette },
 	{ key = "F3", mods = "NONE", action = act.ShowLauncher },
 	{ key = "F4", mods = "NONE", action = act.ShowLauncherArgs({ flags = "FUZZY|TABS" }) },
