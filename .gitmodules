@@ -1,3 +1,6 @@
 [submodule ".config/wezterm/wezterm-config"]
 	path = .config/wezterm/wezterm-config
 	url = https://github.com/KevinSilvester/wezterm-config
+[submodule ".config/wezterm/_old/wezterm-config"]
+	path = .config/wezterm/_old/wezterm-config
+	url = https://github.com/KevinSilvester/wezterm-config.git

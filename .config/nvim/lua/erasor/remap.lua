@@ -16,6 +16,17 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- vim.keymap.set("n", "<leader>cf", function()
+-- 	require("conform").format()
+-- end)
+
 vim.keymap.set("n", "<leader>cf", function()
-	require("conform").format()
-end)
+	require("conform").format({
+		async = true,
+		lsp_fallback = true,
+	})
+end, { desc = "Format buffer" })
+
+vim.keymap.set("n", "<Tab>", ":bnext<CR>", { desc = "Jump to next buffer" })
+vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { desc = "Jump to prev buffer" })
+vim.keymap.set("n", "<leader>x", ":bd<CR>", { desc = "Close current buffer" })
