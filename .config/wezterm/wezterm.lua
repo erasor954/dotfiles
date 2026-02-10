@@ -18,7 +18,7 @@ config.window_padding = {
 config.window_close_confirmation = "NeverPrompt"
 
 -- THEME
-local lighttheme = "Ayu Light (Gogh)"
+--local lighttheme = "Ayu Light (Gogh)"
 -- local darktheme = "Catch Me If You Can (terminal.sexy)"
 local lighttheme = require("light")
 local darktheme = require("dark")
