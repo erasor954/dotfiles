@@ -24,12 +24,15 @@ return {
 			handlers = {
 				-- The default handler for most servers (lua_ls, etc.)
 				function(server_name)
-					require("lspconfig")[server_name].setup({})
+					require("lspconfig")[server_name].setup({
+						autostart = false,
+					})
 				end,
 
 				-- Specific override for JDTLS to fix the "Single File" issue
 				["jdtls"] = function()
 					require("lspconfig").jdtls.setup({
+						autostart = false,
 						-- JDTLS usually needs a project marker (.git, mvnw, etc.) to start.
 						-- This function checks for those, and if not found, falls back to the
 						-- current folder (vim.fn.getcwd()), allowing single files to work.
@@ -84,5 +87,21 @@ return {
 				prefix = "",
 			},
 		})
+
+		local function toggle_lsp()
+			local clients = vim.lsp.get_clients({ bufnr = 0 })
+			-- If clients are found, kill them
+			if #clients > 0 then
+				vim.cmd("LspStop")
+				print("LSP Stopped")
+			else
+				-- If no clients found, start them (respecting the config we made above)
+				vim.cmd("LspStart")
+				print("LSP Started")
+			end
+		end
+
+		-- Map <leader>tl to toggle the LSP
+		vim.keymap.set("n", "<leader>tl", toggle_lsp, { desc = "[T]oggle [L]SP" })
 	end,
 }

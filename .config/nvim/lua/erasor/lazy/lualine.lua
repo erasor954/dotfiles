@@ -36,7 +36,7 @@ return {
 			sections = {
 				-- Left side
 				lualine_a = { "mode" },
-				lualine_b = { "diff" },
+				lualine_b = { "" },
 				lualine_c = {
 					{
 						"buffers",
