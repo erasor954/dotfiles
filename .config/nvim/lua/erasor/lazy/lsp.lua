@@ -65,9 +65,9 @@ return {
 				vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
 				-- Formatting (Native)
-				vim.keymap.set("n", "<leader>f", function()
-					vim.lsp.buf.format({ async = true })
-				end, opts)
+				-- vim.keymap.set("n", "<leader>f", function()
+				-- 	vim.lsp.buf.format({ async = true })
+				-- end, opts)
 				-- Show the full diagnostic message in a floating window
 				vim.keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts)
 				-- Jump to previous/next warning

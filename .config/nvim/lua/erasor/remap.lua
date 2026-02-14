@@ -8,7 +8,7 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 -- CTRL + %, ", for split creation
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "[S]plit [V]ertical" })
 vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "[S]plit [H]orizontal" })
-vim.keymap.set("n", "<leader>t", ":bot split | terminal<CR>")
+-- vim.keymap.set("n", "<leader>t", ":bot split | terminal<CR>")
 
 -- CTRL + h, j, k, l, for split pane navigation
 vim.keymap.set("n", "<C-h>", "<C-w><C-h>", { desc = "Move focus to the left window" })
