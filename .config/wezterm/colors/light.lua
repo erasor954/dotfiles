@@ -37,4 +37,8 @@ return {
 		"#B6B6B6", -- Bright Cyan
 		"#F2F2F2", -- Bright White
 	},
+
+	tab_bar = {
+		background = "#F2F2F2",
+	},
 }

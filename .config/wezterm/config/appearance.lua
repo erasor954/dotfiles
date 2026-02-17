@@ -1,5 +1,18 @@
 local gpu_adapters = require("utils.gpu-adapter")
 local backdrops = require("utils.backdrops")
+local lighttheme = require("colors.light")
+local darktheme = require("colors.dark")
+local wezterm = require("wezterm")
+
+wezterm.on("toggle-theme", function(window, pane)
+	local overrides = window:get_config_overrides() or {}
+	if overrides.colors then
+		overrides.colors = nil
+	else
+		overrides.colors = lighttheme
+	end
+	window:set_config_overrides(overrides)
+end)
 
 return {
 	max_fps = 120,
@@ -19,22 +32,24 @@ return {
 
 	-- color scheme
 	--colors = colors,
-	color_scheme = "Catppuccin Mocha",
+	-- color_scheme = "Catppuccin Mocha",
+	colors = darktheme,
 
 	-- background: pass in `true` if you want wezterm to start with focus mode on (no bg images)
-	background = backdrops:initial_options(true),
+	-- background = backdrops:initial_options(true),
 
 	-- scrollbar
-	enable_scroll_bar = true,
+	enable_scroll_bar = false,
 
 	-- tab bar
 	enable_tab_bar = true,
 	hide_tab_bar_if_only_one_tab = false,
 	use_fancy_tab_bar = false,
-	tab_max_width = 22,
+	tab_max_width = 12,
 	show_tab_index_in_tab_bar = false,
 	switch_to_last_active_tab_when_closing_tab = true,
 	tab_bar_at_bottom = true,
+	show_new_tab_button_in_tab_bar = false,
 
 	-- command palette
 	command_palette_fg_color = "#b4befe",

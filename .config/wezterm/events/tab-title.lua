@@ -5,6 +5,7 @@
 local wezterm = require("wezterm")
 local Cells = require("utils.cells")
 local OptsValidator = require("utils.opts-validator")
+local theme = require("colors.dark")
 
 local process_icons = require("utils.icons")
 ---
@@ -80,31 +81,55 @@ local GLYPH_UNSEEN_NUMBERED_CIRCLE = {
 }
 
 -- Icons for Active Tabs (Filled Box)
+-- local GLYPH_INDEX_FILLED = {
+-- 	[1] = nf.md_numeric_1_box,
+-- 	[2] = nf.md_numeric_2_box,
+-- 	[3] = nf.md_numeric_3_box,
+-- 	[4] = nf.md_numeric_4_box,
+-- 	[5] = nf.md_numeric_5_box,
+-- 	[6] = nf.md_numeric_6_box,
+-- 	[7] = nf.md_numeric_7_box,
+-- 	[8] = nf.md_numeric_8_box,
+-- 	[9] = nf.md_numeric_9_box,
+-- 	[10] = nf.md_numeric_9_plus_box,
+-- }
 local GLYPH_INDEX_FILLED = {
-	[1] = nf.md_numeric_1_box,
-	[2] = nf.md_numeric_2_box,
-	[3] = nf.md_numeric_3_box,
-	[4] = nf.md_numeric_4_box,
-	[5] = nf.md_numeric_5_box,
-	[6] = nf.md_numeric_6_box,
-	[7] = nf.md_numeric_7_box,
-	[8] = nf.md_numeric_8_box,
-	[9] = nf.md_numeric_9_box,
-	[10] = nf.md_numeric_9_plus_box,
+	[1] = "[1]:",
+	[2] = "[2]:",
+	[3] = "[3]:",
+	[4] = "[4]:",
+	[5] = "[5]:",
+	[6] = "[6]:",
+	[7] = "[7]:",
+	[8] = "[8]:",
+	[9] = "[9]:",
+	[10] = "[10]:",
 }
 
 -- Icons for Inactive Tabs (Outline Box)
+-- local GLYPH_INDEX_OUTLINE = {
+-- 	[1] = nf.md_numeric_1_box_outline,
+-- 	[2] = nf.md_numeric_2_box_outline,
+-- 	[3] = nf.md_numeric_3_box_outline,
+-- 	[4] = nf.md_numeric_4_box_outline,
+-- 	[5] = nf.md_numeric_5_box_outline,
+-- 	[6] = nf.md_numeric_6_box_outline,
+-- 	[7] = nf.md_numeric_7_box_outline,
+-- 	[8] = nf.md_numeric_8_box_outline,
+-- 	[9] = nf.md_numeric_9_box_outline,
+-- 	[10] = nf.md_numeric_9_plus_box_outline,
+-- }
 local GLYPH_INDEX_OUTLINE = {
-	[1] = nf.md_numeric_1_box_outline,
-	[2] = nf.md_numeric_2_box_outline,
-	[3] = nf.md_numeric_3_box_outline,
-	[4] = nf.md_numeric_4_box_outline,
-	[5] = nf.md_numeric_5_box_outline,
-	[6] = nf.md_numeric_6_box_outline,
-	[7] = nf.md_numeric_7_box_outline,
-	[8] = nf.md_numeric_8_box_outline,
-	[9] = nf.md_numeric_9_box_outline,
-	[10] = nf.md_numeric_9_plus_box_outline,
+	[1] = "1:",
+	[2] = "2:",
+	[3] = "3:",
+	[4] = "4:",
+	[5] = "5:",
+	[6] = "6:",
+	[7] = "7:",
+	[8] = "8:",
+	[9] = "9:",
+	[10] = "10:",
 }
 
 local PROCESS_ICONS = {
@@ -153,14 +178,15 @@ local RENDER_VARIANTS = {
 
 ---@type table<string, Cells.SegmentColors>
 local colors = {
-	text_default = { bg = "#11111B", fg = "#CDD6F4" },
+	text_default = { bg = theme.background, fg = theme.brights[3] },
 	text_hover = { bg = "#5D87A3", fg = "#1C1B19" },
-	text_active = { bg = "#2A2F41", fg = "#73DACA" },
+	text_active = { bg = theme.background, fg = theme.foreground },
 
 	unseen_output_default = { bg = "#11111B", fg = "#FFA066" },
 	unseen_output_hover = { bg = "#5D87A3", fg = "#FFA066" },
 	unseen_output_active = { bg = "#585B70", fg = "#FFA066" },
 
+	-- scircle_default = { bg = "rgba(0, 0, 0, 0.4)", fg = "#11111B" },
 	scircle_default = { bg = "rgba(0, 0, 0, 0.4)", fg = "#11111B" },
 	scircle_hover = { bg = "rgba(0, 0, 0, 0.4)", fg = "#5D87A3" },
 	scircle_active = { bg = "rgba(0, 0, 0, 0.4)", fg = "#585B70" },
@@ -218,7 +244,8 @@ local function check_unseen_output(panes)
 
 	for i = 1, #panes, 1 do
 		if panes[i].has_unseen_output then
-			unseen_output = true
+			-- unseen_output = true
+			unseen_output = false
 			if unseen_output_count >= 10 then
 				unseen_output_count = 10
 				break
@@ -272,10 +299,10 @@ function Tab:set_info(event_opts, tab, max_width)
 	local process_name = clean_process_name(tab.active_pane.foreground_process_name)
 
 	-- 2. Look up the icon
-	local icon = get_process_icon(process_name)
+	-- local icon = get_process_icon(process_name)
 
 	-- 3. Prepend the icon to the name
-	process_name = icon .. " " .. process_name
+	-- process_name = icon .. " " .. process_name
 
 	self.is_wsl = process_name:match("^wsl") ~= nil
 	self.is_admin = (tab.active_pane.title:match("^Administrator: ") or tab.active_pane.title:match("(Admin)")) ~= nil

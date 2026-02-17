@@ -5,7 +5,7 @@ local platform = require("utils.platform")
 local font_family = "JetBrains Mono"
 -- local font_family = 'CartographCF Nerd Font'
 
-local font_size = platform.is_mac and 12 or 16
+local font_size = 16
 
 return {
 	font = wezterm.font({
