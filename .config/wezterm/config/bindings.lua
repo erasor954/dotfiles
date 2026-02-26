@@ -27,7 +27,7 @@ local keys = {
 	},
 	{ key = "F11", mods = "NONE", action = act.ToggleFullScreen },
 	{ key = "F12", mods = "NONE", action = act.ShowDebugOverlay },
-	{ key = "f", mods = mod.SUPER, action = act.Search({ CaseInSensitiveString = "" }) },
+	{ key = "f", mods = "LEADER", action = act.Search({ CaseInSensitiveString = "" }) },
 	{
 		key = "u",
 		mods = mod.SUPER_REV,
@@ -70,15 +70,15 @@ local keys = {
 	{ key = "]", mods = mod.SUPER_REV, action = act.MoveTabRelative(1) },
 
 	-- tabs: switch by number
-	{ key = "1", mods = mod.SUPER, action = act.ActivateTab(0) },
-	{ key = "2", mods = mod.SUPER, action = act.ActivateTab(1) },
-	{ key = "3", mods = mod.SUPER, action = act.ActivateTab(2) },
-	{ key = "4", mods = mod.SUPER, action = act.ActivateTab(3) },
-	{ key = "5", mods = mod.SUPER, action = act.ActivateTab(4) },
-	{ key = "6", mods = mod.SUPER, action = act.ActivateTab(5) },
-	{ key = "7", mods = mod.SUPER, action = act.ActivateTab(6) },
-	{ key = "8", mods = mod.SUPER, action = act.ActivateTab(7) },
-	{ key = "9", mods = mod.SUPER, action = act.ActivateTab(8) },
+	{ key = "1", mods = "LEADER", action = act.ActivateTab(0) },
+	{ key = "2", mods = "LEADER", action = act.ActivateTab(1) },
+	{ key = "3", mods = "LEADER", action = act.ActivateTab(2) },
+	{ key = "4", mods = "LEADER", action = act.ActivateTab(3) },
+	{ key = "5", mods = "LEADER", action = act.ActivateTab(4) },
+	{ key = "6", mods = "LEADER", action = act.ActivateTab(5) },
+	{ key = "7", mods = "LEADER", action = act.ActivateTab(6) },
+	{ key = "8", mods = "LEADER", action = act.ActivateTab(7) },
+	{ key = "9", mods = "LEADER", action = act.ActivateTab(8) },
 
 	-- tab: title
 	{ key = "0", mods = mod.SUPER, action = act.EmitEvent("tabs.manual-update-tab-title") },
@@ -136,13 +136,14 @@ local keys = {
 	-- panes --
 	-- panes: split panes
 	{
-		key = [[\]],
-		mods = mod.SUPER,
+		-- key = [[\]],
+		key = "h",
+		mods = "LEADER",
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
 	},
 	{
-		key = [[\]],
-		mods = mod.SUPER_REV,
+		key = "v",
+		mods = "LEADER",
 		action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }),
 	},
 
@@ -151,10 +152,10 @@ local keys = {
 	{ key = "w", mods = mod.SUPER, action = act.CloseCurrentPane({ confirm = false }) },
 
 	-- panes: navigation
-	{ key = "k", mods = mod.SUPER, action = act.ActivatePaneDirection("Up") },
-	{ key = "j", mods = mod.SUPER, action = act.ActivatePaneDirection("Down") },
-	{ key = "h", mods = mod.SUPER, action = act.ActivatePaneDirection("Left") },
-	{ key = "l", mods = mod.SUPER, action = act.ActivatePaneDirection("Right") },
+	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
+	{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
+	{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
 	{
 		key = "p",
 		mods = mod.SUPER_REV,
@@ -220,7 +221,7 @@ local mouse_bindings = {
 return {
 	disable_default_key_bindings = true,
 	-- disable_default_mouse_bindings = true,
-	leader = { key = "Space", mods = mod.SUPER_REV },
+	leader = { key = "Space", mods = mod.SUPER },
 	keys = keys,
 	key_tables = key_tables,
 	mouse_bindings = mouse_bindings,

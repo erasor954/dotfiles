@@ -5,7 +5,7 @@ return {
 			formatters_by_ft = {
 				lua = { "stylua" },
 				java = {
-					"clang-format", -- use clang-format instead of google-java-format
+					"clang-format",
 				},
 			},
 			formatters = {
@@ -15,8 +15,7 @@ return {
 					},
 				},
 			},
-			format_on_save = {
-				timeout_ms = 500,
+			format_after_save = {
 				lsp_format = "fallback",
 			},
 		})

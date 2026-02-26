@@ -17,7 +17,7 @@
     "memory",
     //"custom/docker",
     "tray",
-    "custom/lock",
+    //"custom/lock"
     "custom/power"
     ],
 

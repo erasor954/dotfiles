@@ -6,6 +6,12 @@ return {
 		config = function()
 			-- Calling setup is optional, but allows you to configure the UI
 			require("fzf-lua").setup({
+				-- keymap = {
+				-- 	fzf = {
+				-- 		["ctrl-j"] = "down",
+				-- 		["ctrl-k"] = "up",
+				-- 	},
+				-- },
 				winopts = {
 					preview = {
 						-- default = "bat", -- uses "bat" for preview if available
@@ -15,10 +21,10 @@ return {
 			})
 
 			-- Keybindings
-			vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "FzfLua Files" })
-			vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "FzfLua Buffers" })
-			vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "FzfLua Grep" })
-			vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { desc = "Code Actions" })
+			vim.keymap.set("n", "<leader>ff", "<cmd>FzfLua files<cr>", { desc = "[F]zfLua [F]iles" })
+			vim.keymap.set("n", "<leader>fb", "<cmd>FzfLua buffers<cr>", { desc = "[F]zfLua [B]uffers" })
+			vim.keymap.set("n", "<leader>fg", "<cmd>FzfLua live_grep<cr>", { desc = "[F]zfLua [G]rep" })
+			vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", { desc = "[C]ode [A]ctions" })
 		end,
 	},
 }
