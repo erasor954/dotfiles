@@ -26,6 +26,8 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
+
 # aliases
 alias tma="tmux new-session -A -s main"
 alias vim="nvim"
