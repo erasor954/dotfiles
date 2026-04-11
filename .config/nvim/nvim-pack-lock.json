@@ -28,6 +28,10 @@
       "rev": "8811f3f3f4dc09d740c67e9ce399e7a541e2e5b2",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markdown-preview.nvim": {
+      "rev": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee",
+      "src": "https://github.com/iamcco/markdown-preview.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "63a3c6a80538de1003373a619e29aeda27809ad3",
       "src": "https://github.com/williamboman/mason-lspconfig.nvim"
@@ -59,6 +63,10 @@
     "onedarkpro.nvim": {
       "rev": "dab7b623d48b50330c43234958c0ba2de9b501d5",
       "src": "https://github.com/olimorris/onedarkpro.nvim"
+    },
+    "render-markdown.nvim": {
+      "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
     },
     "tokyonight.nvim": {
       "rev": "cdc07ac78467a233fd62c493de29a17e0cf2b2b6",
