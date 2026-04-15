@@ -57,11 +57,15 @@ local keys = {
 	{ key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
 	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
 
+	-- Delete word/line
+	{ key = "Backspace", mods = mod.SUPER, action = act.SendKey({ key = "w", mods = "CTRL" }) },
+	{ key = "Backspace", mods = "ALT", action = act.SendKey({ key = "u", mods = "CTRL" }) },
+
 	-- tabs --
 	-- tabs: spawn+close
 	{ key = "t", mods = mod.SUPER, action = act.SpawnTab("DefaultDomain") },
 	--	{ key = "t", mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = "wsl:ubuntu-fish" }) },
-	{ key = "w", mods = mod.SUPER_REV, action = act.CloseCurrentTab({ confirm = false }) },
+	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentTab({ confirm = false }) },
 
 	-- tabs: navigation
 	{ key = "[", mods = mod.SUPER, action = act.ActivateTabRelative(-1) },
@@ -149,7 +153,7 @@ local keys = {
 
 	-- panes: zoom+close pane
 	{ key = "Enter", mods = mod.SUPER, action = act.TogglePaneZoomState },
-	{ key = "w", mods = mod.SUPER, action = act.CloseCurrentPane({ confirm = false }) },
+	-- { key = "w", mods = mod.SUPER, action = act.CloseCurrentPane({ confirm = false }) },
 
 	-- panes: navigation
 	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },

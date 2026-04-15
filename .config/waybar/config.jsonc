@@ -82,7 +82,9 @@
         "format-disconnected": "󰤠 No Network",
         "interval": 5,
         "tooltip": false,
-        "on-click": "wezterm start nmtui"
+        //"on-click": "wezterm start nmtui"
+        //"on-click": "nm-connection-editor"
+        "on-click": "nm-applet"
     },
 
     "cpu": {
