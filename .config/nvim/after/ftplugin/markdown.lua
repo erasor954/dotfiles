@@ -1,5 +1,5 @@
 vim.opt_local.wrap = true
-vim.opt_local.spell = true
+vim.opt_local.spell = false
 vim.opt_local.conceallevel = 2
 
 vim.pack.add({
@@ -10,31 +10,26 @@ vim.pack.add({
 local ok, render_md = pcall(require, "render-markdown")
 if ok then
 	render_md.setup({
-		-- 1. Headers: Keep them simple, no heavy backgrounds
 		heading = {
-			sign = false, -- Removes the chunky icons from the far-left sign column
-			backgrounds = {}, -- Strips away the solid background colors
-			icons = { "◆ ", "◇ ", "• ", "◦ ", "▪ ", "▫ " }, -- Clean, minimal bullets instead of massive icons
+			sign = false,
+			backgrounds = {},
+			icons = { "󰉫  ", "󰉬  ", "󰉭  ", "󰉮  ", "󰉯  ", "󰉰  " },
 		},
 
-		-- 2. Code Blocks: Just the code, no flashy borders
 		code = {
-			sign = false, -- No sign column icon for code blocks
-			style = "normal", -- Prevents the plugin from drawing heavy boxes around your code
+			sign = false,
+			style = "normal",
 		},
 
-		-- 3. Dividers: A sleek, thin line
 		dash = {
-			icon = "─", -- Replaces thick blocks with a simple, thin horizontal line
+			icon = "─",
 			width = "full",
 		},
 
-		-- 4. Lists: Classic, understated dots
 		bullet = {
 			icons = { "•", "◦", "▪" },
 		},
 
-		-- 5. Checkboxes: Plain text style
 		checkbox = {
 			unchecked = { icon = "[ ] " },
 			checked = { icon = "[x] " },

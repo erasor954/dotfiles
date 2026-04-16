@@ -30,17 +30,16 @@ end
 vim.keymap.set("n", "<leader>tl", "<cmd>lua _G.toggle_lsp_system()<CR>", { desc = "Toggle LSP Persistence" })
 
 vim.pack.add({ gh("williamboman/mason.nvim") })
-require("mason").setup()
-
+vim.pack.add({ gh("neovim/nvim-lspconfig") }) -- MUST be loaded before mason-lspconfig
 vim.pack.add({ gh("williamboman/mason-lspconfig.nvim") })
 
+require("mason").setup()
 require("mason-lspconfig").setup({
 	ensure_installed = { "lua_ls", "jdtls" },
 	automatic_installation = true,
 })
 
 if is_lsp_enabled() then
-	vim.pack.add({ gh("neovim/nvim-lspconfig") })
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 	vim.lsp.config("lua_ls", { capabilities = capabilities })
@@ -54,19 +53,26 @@ if is_lsp_enabled() then
 		end,
 	})
 	vim.lsp.enable("jdtls")
-
-	vim.api.nvim_create_autocmd("LspAttach", {
-		group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-		callback = function(ev)
-			local opts = { buffer = ev.buf, silent = true }
-			vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-			vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-			vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-			vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-			vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-		end,
-	})
 end
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		local opts = { buffer = ev.buf, silent = true }
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
+		vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)
+		vim.keymap.set("n", "[d", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, opts)
+		vim.keymap.set("n", "]d", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, opts)
+	end,
+})
 
 vim.diagnostic.config({
 	float = { border = "rounded", source = "always" },
