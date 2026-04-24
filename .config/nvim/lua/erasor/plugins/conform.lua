@@ -6,6 +6,8 @@ require("conform").setup({
 		java = {
 			"clang-format",
 		},
+		sh = { "shfmt" },
+		bash = { "shfmt" },
 	},
 	formatters = {
 		["clang-format"] = {
