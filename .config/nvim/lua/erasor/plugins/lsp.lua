@@ -1,5 +1,5 @@
 vim.pack.add({ gh("williamboman/mason.nvim") })
-vim.pack.add({ gh("neovim/nvim-lspconfig") }) -- MUST be loaded before mason-lspconfig
+vim.pack.add({ gh("neovim/nvim-lspconfig") })
 vim.pack.add({ gh("williamboman/mason-lspconfig.nvim") })
 
 require("mason").setup()

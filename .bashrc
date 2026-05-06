@@ -5,6 +5,10 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+if [ -f ~/.git_credentials.env ]; then
+    export $(grep -v '^#' ~/.git_credentials.env | xargs)
+fi
+
 . /etc/profile.d/wezterm.sh
 
 # User specific environment
@@ -26,7 +30,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-
 eval "$(fzf --bash)"
 # EXPORT
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
@@ -46,22 +49,21 @@ alias la="ls -la"
 alias inv='nvim $(fzf -m --preview="bat -n --color=always {}")'
 
 function y() {
-	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-	command yazi "$@" --cwd-file="$tmp"
-	IFS= read -r -d '' cwd < "$tmp"
-	[ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
-	rm -f -- "$tmp"
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    command yazi "$@" --cwd-file="$tmp"
+    IFS= read -r -d '' cwd <"$tmp"
+    [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+    rm -f -- "$tmp"
 }
 
 fcd() {
-  local file
-  # file=$(fzf --height 40%)
-  file=$(fzf -m --preview='bat -n --color=always {}')
-  if [ -n "$file" ]; then
-    cd "$(dirname "$file")"
-  fi
+    local file
+    # file=$(fzf --height 40%)
+    file=$(fzf -m --preview='bat -n --color=always {}')
+    if [ -n "$file" ]; then
+        cd "$(dirname "$file")"
+    fi
 }
-
 
 sdku() {
     if [ -z $1 ]; then
@@ -76,10 +78,19 @@ sdku() {
     fi
 }
 
+gkclone() {
+    local KEY="$GIT_KEY"
+    local REPO_URL=$1
+
+    local STRIPPED_URL=${REPO_URL#https://}
+
+    git clone "https://$KEY@$STRIPPED_URL"
+}
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
