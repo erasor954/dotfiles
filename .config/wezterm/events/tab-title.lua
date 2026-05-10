@@ -178,6 +178,7 @@ local RENDER_VARIANTS = {
 
 ---@type table<string, Cells.SegmentColors>
 local colors = {
+	-- text_default = { bg = theme.background, fg = theme.brights[3] },
 	text_default = { bg = theme.background, fg = theme.brights[3] },
 	text_hover = { bg = "#5D87A3", fg = "#1C1B19" },
 	text_active = { bg = theme.background, fg = theme.foreground },

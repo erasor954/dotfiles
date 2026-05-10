@@ -15,7 +15,7 @@ local colors = {
 	blue = "#7e9cd8",
 }
 
-local custom_theme = require("lualine.themes.auto")
+-- local custom_theme = require("lualine.themes.auto")
 local high_contrast_theme = {
 	a = { fg = colors.bg, bg = colors.emphasis, gui = "bold" },
 	b = { fg = colors.fg, bg = colors.line },
@@ -23,13 +23,13 @@ local high_contrast_theme = {
 	z = { fg = colors.bg, bg = colors.emphasis, gui = "bold" },
 }
 
-custom_theme.normal = high_contrast_theme
-custom_theme.insert = high_contrast_theme
+-- custom_theme.normal = high_contrast_theme
+-- custom_theme.insert = high_contrast_theme
 
 configs.setup({
 
 	options = {
-		theme = custom_theme,
+		-- theme = custom_theme,
 
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "|", right = "|" },
@@ -70,18 +70,6 @@ configs.setup({
 			},
 		},
 		lualine_y = {
-			-- {
-			-- 	function()
-			-- 		-- 1. Get path relative to home (~/dev/projects/my-app)
-			-- 		local path = vim.fn.fnamemodify(vim.fn.getcwd(), ":~")
-			--
-			-- 		-- 2. Shorten the path: '~/dev/projects/my-app' -> '~/d/p/my-app'
-			-- 		-- This regex finds folder names followed by a separator and keeps the first char
-			-- 		return " " .. path:gsub("([^/])[^/]*/", "%1/")
-			-- 	end,
-			-- 	color = { fg = colors.fg, gui = "bold" },
-			-- 	separator = { right = "|" },
-			-- },
 			"branch",
 		},
 		lualine_z = { "location" },
