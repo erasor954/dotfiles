@@ -10,4 +10,6 @@ alias grep="rg"
 alias ll="ls -l"
 alias la="ls -la"
 
+alias tlmgr="sudo /usr/local/texlive/2026/bin/x86_64-linux/tlmgr"
+
 alias inv='nvim $(fzf -m --preview="bat -n --color=always {}")'
