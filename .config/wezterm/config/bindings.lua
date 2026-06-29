@@ -6,16 +6,18 @@ local act = wezterm.action
 local mod = {}
 
 if platform.is_mac then
-	mod.SUPER = "SUPER"
-	mod.SUPER_REV = "SUPER|CTRL"
+	mod.SUPER = "CMD"
+	mod.SUPER_REV = "CMD|SHIFT"
+	mod.HYPER = "CMD|CTRL|OPT|SHIFT" -- Your Karabiner Hyper key
 elseif platform.is_win or platform.is_linux then
 	mod.SUPER = "CTRL" -- to not conflict with Windows key shortcuts
 	mod.SUPER_REV = "ALT|CTRL"
+	mod.HYPER = "CTRL|SHIFT" -- Fallback for non-Mac systems
 end
 
 local keys = {
 	-- misc/useful --
-	{ key = "#", mods = "CTRL|SHIFT", action = act.EmitEvent("toggle-theme") },
+	{ key = "#", mods = mod.HYPER, action = act.EmitEvent("toggle-theme") },
 	{ key = "x", mods = "LEADER", action = "ActivateCopyMode" },
 	{ key = "F2", mods = "NONE", action = act.ActivateCommandPalette },
 	{ key = "F3", mods = "NONE", action = act.ShowLauncher },
@@ -53,9 +55,9 @@ local keys = {
 	{ key = "RightArrow", mods = mod.SUPER, action = act.SendString("\u{1b}OF") },
 	{ key = "Backspace", mods = mod.SUPER, action = act.SendString("\u{15}") },
 
-	-- copy/paste --
-	{ key = "c", mods = "CTRL|SHIFT", action = act.CopyTo("Clipboard") },
-	{ key = "v", mods = "CTRL|SHIFT", action = act.PasteFrom("Clipboard") },
+	-- copy/paste (Standard Mac CMD+C / CMD+V) --
+	{ key = "c", mods = "CMD", action = act.CopyTo("Clipboard") },
+	{ key = "v", mods = "CMD", action = act.PasteFrom("Clipboard") },
 
 	-- Delete word/line
 	{ key = "Backspace", mods = mod.SUPER, action = act.SendKey({ key = "w", mods = "CTRL" }) },
@@ -64,8 +66,7 @@ local keys = {
 	-- tabs --
 	-- tabs: spawn+close
 	{ key = "t", mods = mod.SUPER, action = act.SpawnTab("DefaultDomain") },
-	--	{ key = "t", mods = mod.SUPER_REV, action = act.SpawnTab({ DomainName = "wsl:ubuntu-fish" }) },
-	{ key = "w", mods = "CTRL|SHIFT", action = act.CloseCurrentPane({ confirm = false }) },
+	{ key = "w", mods = mod.SUPER_REV, action = act.CloseCurrentPane({ confirm = false }) },
 
 	-- tabs: navigation
 	{ key = "[", mods = mod.SUPER, action = act.ActivateTabRelative(-1) },
@@ -87,9 +88,6 @@ local keys = {
 	-- tab: title
 	{ key = "0", mods = mod.SUPER, action = act.EmitEvent("tabs.manual-update-tab-title") },
 	{ key = "0", mods = mod.SUPER_REV, action = act.EmitEvent("tabs.reset-tab-title") },
-
-	-- tab: hide tab-bar
-	-- { key = "9", mods = mod.SUPER, action = act.EmitEvent("tabs.toggle-tab-bar") },
 
 	-- window --
 	-- window: zoom window
@@ -140,7 +138,6 @@ local keys = {
 	-- panes --
 	-- panes: split panes
 	{
-		-- key = [[\]],
 		key = "h",
 		mods = "LEADER",
 		action = act.SplitVertical({ domain = "CurrentPaneDomain" }),
@@ -153,13 +150,12 @@ local keys = {
 
 	-- panes: zoom+close pane
 	{ key = "Enter", mods = mod.SUPER, action = act.TogglePaneZoomState },
-	-- { key = "w", mods = mod.SUPER, action = act.CloseCurrentPane({ confirm = false }) },
 
-	-- panes: navigation
-	{ key = "k", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Up") },
-	{ key = "j", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Down") },
-	{ key = "h", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Left") },
-	{ key = "l", mods = "CTRL|SHIFT", action = act.ActivatePaneDirection("Right") },
+	-- panes: navigation (Changed to HYPER for easier access)
+	{ key = "k", mods = mod.HYPER, action = act.ActivatePaneDirection("Up") },
+	{ key = "j", mods = mod.HYPER, action = act.ActivatePaneDirection("Down") },
+	{ key = "h", mods = mod.HYPER, action = act.ActivatePaneDirection("Left") },
+	{ key = "l", mods = mod.HYPER, action = act.ActivatePaneDirection("Right") },
 	{
 		key = "p",
 		mods = mod.SUPER_REV,
@@ -224,8 +220,8 @@ local mouse_bindings = {
 
 return {
 	disable_default_key_bindings = true,
-	-- disable_default_mouse_bindings = true,
-	leader = { key = "Space", mods = mod.SUPER },
+	-- Switched leader from SUPER+Space (which hits macOS Spotlight) to HYPER+Space
+	leader = { key = "Space", mods = mod.HYPER },
 	keys = keys,
 	key_tables = key_tables,
 	mouse_bindings = mouse_bindings,
