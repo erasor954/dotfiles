@@ -59,8 +59,8 @@ return {
 
 	-- window
 	window_padding = {
-		left = 0,
-		right = 0,
+		left = 10,
+		right = 10,
 		top = 10,
 		bottom = 7.5,
 	},
@@ -79,6 +79,7 @@ return {
 		saturation = 1,
 		brightness = 1,
 	},
+	window_decorations = "RESIZE",
 
 	--	visual_bell = {
 	--		fade_in_function = "EaseIn",
