@@ -6,7 +6,10 @@ if [ -f /etc/profile.d/wezterm.sh ]; then
 fi
 
 # FZF
-eval "$(fzf --zsh)"
+# eval "$(fzf --zsh)"
+
+# /opt/homebrew/bin
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # NVM
 export NVM_DIR="$HOME/.nvm"

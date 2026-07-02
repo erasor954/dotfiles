@@ -17,8 +17,9 @@ end)
 return {
 	max_fps = 120,
 	front_end = "WebGpu", ---@type 'WebGpu' | 'OpenGL' | 'Software'
+	prefer_egl = false,
 	webgpu_power_preference = "HighPerformance",
-	webgpu_preferred_adapter = gpu_adapters:pick_best(),
+	-- webgpu_preferred_adapter = gpu_adapters:pick_best(),
 	-- webgpu_preferred_adapter = gpu_adapters:pick_manual('Dx12', 'IntegratedGpu'),
 	-- webgpu_preferred_adapter = gpu_adapters:pick_manual('Gl', 'Other'),
 	underline_thickness = "1.5pt",

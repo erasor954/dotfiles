@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "arborist.nvim": {
+      "rev": "fdeef56c2840c6772b9f68c5774ed87e9340ec7d",
+      "src": "https://github.com/arborist-ts/arborist.nvim"
+    },
     "brightburn.vim": {
       "rev": "fc0d2fafc51e86d6065acd54b5e82e686019ff2f",
       "src": "https://github.com/erikbackman/brightburn.vim"
@@ -48,6 +52,10 @@
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
       "src": "https://github.com/catppuccin/nvim"
     },
+    "nvim-autopairs": {
+      "rev": "7b9923abad60b903ece7c52940e1321d39eccc79",
+      "src": "https://github.com/windwp/nvim-autopairs"
+    },
     "nvim-lspconfig": {
       "rev": "fb5fa30626ae10f7f79f740059d3769993936ecb",
       "src": "https://github.com/neovim/nvim-lspconfig"
@@ -55,6 +63,10 @@
     "nvim-treesitter": {
       "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
+    "nvim-ts-autotag": {
+      "rev": "88c1453db4ba7dd24131086fe51fdf74e587d275",
+      "src": "https://github.com/windwp/nvim-ts-autotag"
     },
     "nvim-web-devicons": {
       "rev": "95b7a002d5dba1a42eb58f5fac5c565a485eefd0",
