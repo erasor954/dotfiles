@@ -1,0 +1,15 @@
+{
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "indentStyle": "tab",
+    "indentWidth": 4
+  },
+  "linter": {
+    "enabled": true
+  },
+  "javascript": { "formatter": { "enabled": true } },
+  "typescript": { "formatter": { "enabled": true } },
+  "css": { "formatter": { "enabled": true } },
+  "html": { "formatter": { "enabled": true } }
+}

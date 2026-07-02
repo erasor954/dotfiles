@@ -8,19 +8,15 @@ require("conform").setup({
 		},
 		sh = { "shfmt" },
 		bash = { "shfmt" },
-		html = { "prettier" },
+		html = { "biome" },
+		css = { "biome" },
+		javascript = { "biome" },
+		typescript = { "biome" },
 	},
 	formatters = {
 		["clang-format"] = {
 			prepend_args = {
 				"--style={BasedOnStyle: Google, IndentWidth: 4, ContinuationIndentWidth: 4}",
-			},
-		},
-		["prettier"] = {
-			prepend_args = {
-				"--tab-width",
-				"4",
-				"--use-tabs",
 			},
 		},
 	},
