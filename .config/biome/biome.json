@@ -9,7 +9,6 @@
     "enabled": true
   },
   "javascript": { "formatter": { "enabled": true } },
-  "typescript": { "formatter": { "enabled": true } },
   "css": { "formatter": { "enabled": true } },
   "html": { "formatter": { "enabled": true } }
 }

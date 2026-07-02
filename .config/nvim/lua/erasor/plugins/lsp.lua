@@ -4,7 +4,7 @@ vim.pack.add({ gh("williamboman/mason-lspconfig.nvim") })
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "jdtls", "ts_ls", "html", "cssls" },
+	ensure_installed = { "lua_ls", "jdtls", "ts_ls", "html", "cssls", "biome" },
 	automatic_installation = true,
 })
 

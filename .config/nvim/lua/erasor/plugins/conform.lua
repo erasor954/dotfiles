@@ -19,6 +19,16 @@ require("conform").setup({
 				"--style={BasedOnStyle: Google, IndentWidth: 4, ContinuationIndentWidth: 4}",
 			},
 		},
+		["biome"] = {
+			require_cwd = false,
+			args = {
+				"format",
+				"--config-path",
+				vim.fn.expand("~/.config/biome"),
+				"--stdin-file-path",
+				"$FILENAME",
+			},
+		},
 	},
 	format_after_save = {
 		lsp_format = "fallback",
