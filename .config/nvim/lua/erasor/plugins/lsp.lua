@@ -22,6 +22,14 @@ vim.lsp.config("jdtls", {
 })
 vim.lsp.enable("jdtls")
 
+vim.lsp.config("html", {
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		client.server_capabilities.documentFormattingProvider = false
+	end,
+})
+vim.lsp.enable("html")
+
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
