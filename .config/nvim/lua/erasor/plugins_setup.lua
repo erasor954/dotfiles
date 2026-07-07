@@ -13,6 +13,7 @@ require("erasor.plugins.colors")
 -- Core
 require("erasor.plugins.treesitter")
 require("erasor.plugins.fzf")
+require("erasor.plugins.harpoon")
 
 -- UI
 require("erasor.plugins.lualine")

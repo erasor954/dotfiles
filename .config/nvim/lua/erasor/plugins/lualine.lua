@@ -43,21 +43,22 @@ configs.setup({
 		lualine_b = { "" },
 		lualine_c = {
 			{
-				"buffers",
-				mode = 0,
-				show_modified_status = true,
-				show_filename_only = true,
-
-				buffers_color = {
-					active = { fg = "#7e9cd8", gui = "bold" },
-					inactive = { fg = "#50585d" },
-				},
-
-				symbols = {
-					modified = "[+]",
-					alternate_file = "",
-					directory = "",
-				},
+				-- "buffers",
+				-- mode = 0,
+				-- show_modified_status = true,
+				-- show_filename_only = true,
+				--
+				-- buffers_color = {
+				-- 	active = { fg = "#7e9cd8", gui = "bold" },
+				-- 	inactive = { fg = "#50585d" },
+				-- },
+				--
+				-- symbols = {
+				-- 	modified = "[+]",
+				-- 	alternate_file = "",
+				-- 	directory = "",
+				-- },
+				"",
 			},
 		},
 

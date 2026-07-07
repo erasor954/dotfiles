@@ -20,6 +20,11 @@
       "rev": "334d5fd49fc8033f26408425366c66c6390c57bb",
       "src": "https://github.com/ellisonleao/gruvbox.nvim"
     },
+    "harpoon": {
+      "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
+      "src": "https://github.com/ThePrimeagen/harpoon",
+      "version": "'harpoon2'"
+    },
     "koda.nvim": {
       "rev": "50b1a67b797412885a4af0da7717dce68369d23d",
       "src": "https://github.com/oskarnurm/koda.nvim"
@@ -75,6 +80,10 @@
     "onedarkpro.nvim": {
       "rev": "dab7b623d48b50330c43234958c0ba2de9b501d5",
       "src": "https://github.com/olimorris/onedarkpro.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
     },
     "render-markdown.nvim": {
       "rev": "54d4b5431e9634ee3d8d30784e017239b5b89d41",
