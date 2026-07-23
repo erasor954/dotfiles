@@ -20,6 +20,7 @@ require("erasor.plugins.lualine")
 
 -- LSP
 require("erasor.plugins.conform")
+require("erasor.plugins.completion")
 require("erasor.plugins.lsp")
 
 require("erasor.plugins.auto_pairs")

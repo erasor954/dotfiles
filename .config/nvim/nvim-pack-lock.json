@@ -8,6 +8,14 @@
       "rev": "01faacb4cb76e8cf72ad9858c581d80876260ab3",
       "src": "https://github.com/ayu-theme/ayu-vim"
     },
+    "blink.cmp": {
+      "rev": "0f54bd78892f587db4dcf100a23eaddfc2a9df7d",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
+    "blink.lib": {
+      "rev": "5876dd95deeb70aadbe9f1c0b7117a135061cdac",
+      "src": "https://github.com/Saghen/blink.lib"
+    },
     "brightburn.vim": {
       "rev": "fc0d2fafc51e86d6065acd54b5e82e686019ff2f",
       "src": "https://github.com/erikbackman/brightburn.vim"
