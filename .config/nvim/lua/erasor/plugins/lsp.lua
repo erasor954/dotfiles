@@ -1,10 +1,29 @@
 vim.pack.add({ gh("williamboman/mason.nvim") })
 vim.pack.add({ gh("neovim/nvim-lspconfig") })
 vim.pack.add({ gh("williamboman/mason-lspconfig.nvim") })
+vim.pack.add({ gh("WhoIsSethDaniel/mason-tool-installer.nvim") })
 
 require("mason").setup()
+
+require("mason-tool-installer").setup({
+	ensure_installed = {
+		"stylua",
+		"shellcheck",
+		"shfmt",
+	},
+})
+
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "jdtls", "ts_ls", "html", "cssls", "biome" },
+	ensure_installed = {
+		"lua_ls",
+		"jdtls",
+		"ts_ls",
+		"html",
+		"cssls",
+		"biome",
+		"texlab",
+		"bashls",
+	},
 	automatic_installation = true,
 })
 
@@ -29,6 +48,21 @@ vim.lsp.config("html", {
 	end,
 })
 vim.lsp.enable("html")
+
+vim.lsp.config("cssls", { capabilities = capabilities })
+vim.lsp.enable("cssls")
+
+vim.lsp.config("ts_ls", { capabilities = capabilities })
+vim.lsp.enable("ts_ls")
+
+vim.lsp.config("biome", { capabilities = capabilities })
+vim.lsp.enable("biome")
+
+vim.lsp.config("bashls", { capabilities = capabilities })
+vim.lsp.enable("bashls")
+
+vim.lsp.config("texlab", { capabilities = capabilities })
+vim.lsp.enable("texlab")
 
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
