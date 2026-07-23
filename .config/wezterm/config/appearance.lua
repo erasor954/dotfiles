@@ -1,19 +1,19 @@
 local gpu_adapters = require("utils.gpu-adapter")
-local backdrops = require("utils.backdrops")
-local lighttheme = require("colors.light")
-local darktheme = require("colors.dark")
+-- local backdrops = require("utils.backdrops")
+-- local lighttheme = require("colors.light")
+-- local darktheme = require("colors.dark")
 local wezterm = require("wezterm")
 
-wezterm.on("toggle-theme", function(window, pane)
-	local overrides = window:get_config_overrides() or {}
-	if overrides.colors then
-		overrides.colors = nil
-	else
-		overrides.colors = lighttheme
-	end
-	window:set_config_overrides(overrides)
-end)
-
+-- wezterm.on("toggle-theme", function(window, pane)
+-- 	local overrides = window:get_config_overrides() or {}
+-- 	if overrides.colors then
+-- 		overrides.colors = nil
+-- 	else
+-- 		overrides.colors = lighttheme
+-- 	end
+-- 	window:set_config_overrides(overrides)
+-- end)
+--
 return {
 	max_fps = 120,
 	front_end = "WebGpu", ---@type 'WebGpu' | 'OpenGL' | 'Software'
@@ -33,8 +33,8 @@ return {
 
 	-- color scheme
 	--colors = colors,
-	-- color_scheme = "Catppuccin Mocha",
-	colors = darktheme,
+	color_scheme = "Kanagawa Dragon (Gogh)",
+	-- colors = darktheme,
 
 	-- background: pass in `true` if you want wezterm to start with focus mode on (no bg images)
 	-- background = backdrops:initial_options(true),

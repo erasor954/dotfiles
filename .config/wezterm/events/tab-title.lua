@@ -5,7 +5,7 @@
 local wezterm = require("wezterm")
 local Cells = require("utils.cells")
 local OptsValidator = require("utils.opts-validator")
-local theme = require("colors.dark")
+-- local theme = require("colors.dark")
 
 local process_icons = require("utils.icons")
 ---
@@ -179,18 +179,18 @@ local RENDER_VARIANTS = {
 ---@type table<string, Cells.SegmentColors>
 local colors = {
 	-- text_default = { bg = theme.background, fg = theme.brights[3] },
-	text_default = { bg = theme.background, fg = theme.brights[3] },
+	text_default = { bg = "rgba(24,22,22,1)", fg = "#3f3f3f" },
 	text_hover = { bg = "#5D87A3", fg = "#1C1B19" },
-	text_active = { bg = theme.background, fg = theme.foreground },
+	-- text_active = { bg = theme.background, fg = theme.foreground },
+	text_active = { bg = "rgba(24,22,22,1)", fg = "#3f3f3f" },
 
 	unseen_output_default = { bg = "#11111B", fg = "#FFA066" },
 	unseen_output_hover = { bg = "#5D87A3", fg = "#FFA066" },
 	unseen_output_active = { bg = "#585B70", fg = "#FFA066" },
 
-	-- scircle_default = { bg = "rgba(0, 0, 0, 0.4)", fg = "#11111B" },
-	scircle_default = { bg = "rgba(0, 0, 0, 0.4)", fg = "#11111B" },
-	scircle_hover = { bg = "rgba(0, 0, 0, 0.4)", fg = "#5D87A3" },
-	scircle_active = { bg = "rgba(0, 0, 0, 0.4)", fg = "#585B70" },
+	scircle_default = { bg = "rgba(255, 0, 0, 0.4)", fg = "#11111B" },
+	scircle_hover = { bg = "rgba(255, 0, 0, 0.4)", fg = "#5D87A3" },
+	scircle_active = { bg = "rgba(255, 0, 0, 0.4)", fg = "#585B70" },
 }
 
 ---

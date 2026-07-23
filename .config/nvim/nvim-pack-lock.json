@@ -4,6 +4,10 @@
       "rev": "fdeef56c2840c6772b9f68c5774ed87e9340ec7d",
       "src": "https://github.com/arborist-ts/arborist.nvim"
     },
+    "ayu-vim": {
+      "rev": "01faacb4cb76e8cf72ad9858c581d80876260ab3",
+      "src": "https://github.com/ayu-theme/ayu-vim"
+    },
     "brightburn.vim": {
       "rev": "fc0d2fafc51e86d6065acd54b5e82e686019ff2f",
       "src": "https://github.com/erikbackman/brightburn.vim"
@@ -24,6 +28,10 @@
       "rev": "87b1a3506211538f460786c23f98ec63ad9af4e5",
       "src": "https://github.com/ThePrimeagen/harpoon",
       "version": "'harpoon2'"
+    },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
     },
     "koda.nvim": {
       "rev": "50b1a67b797412885a4af0da7717dce68369d23d",
@@ -52,6 +60,14 @@
     "neovim": {
       "rev": "cf2a288696b03d0934da713d66c6d71557b5c997",
       "src": "https://github.com/rose-pine/neovim"
+    },
+    "nightfox.nvim": {
+      "rev": "4dacd3f0185a2227bdf3b6c0975a8f0bf87cac9a",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
+    },
+    "no-clown-fiesta.nvim": {
+      "rev": "04b808e9769ded988089772ffcaf08d92d75d927",
+      "src": "https://github.com/aktersnurra/no-clown-fiesta.nvim"
     },
     "nvim": {
       "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",

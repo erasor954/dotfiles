@@ -8,6 +8,8 @@ if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
 fi
 export PATH
 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 if [ -d ~/.zshrc.d ]; then
     for rc in ~/.zshrc.d/*; do
         if [ -f "$rc" ]; then
@@ -15,8 +17,3 @@ if [ -d ~/.zshrc.d ]; then
         fi
     done
 fi
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-eval "$(/opt/homebrew/bin/brew shellenv)"

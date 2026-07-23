@@ -1,0 +1,76 @@
+### ---------------------------------------------------------------
+### Appearance & Window
+### ---------------------------------------------------------------
+# Ghostty has Kanagawa Dragon built-in!
+theme = Kanagawa Dragon
+
+# Window Settings
+window-padding-x = 10
+window-padding-y = 9
+macos-titlebar-style = hidden
+
+# Scrollback
+scrollback-limit = 20000
+
+### ---------------------------------------------------------------
+### Fonts
+### ---------------------------------------------------------------
+font-family = "JetBrains Mono"
+font-style = "Medium"
+font-size = 16
+
+# Disable ligatures (translating your calt=0, clig=0, liga=0)
+font-feature = -calt, -clig, -liga
+
+### ---------------------------------------------------------------
+### Keybindings
+### ---------------------------------------------------------------
+# Ghostty natively respects Mac defaults for copy (Cmd+C), paste (Cmd+V), 
+# word deletion (Opt+Backspace), and line deletion (Cmd+Backspace). 
+# We only need to map your custom overrides.
+
+
+# Scroll
+keybind = cmd+u=scroll_page_lines:-5
+keybind = cmd+d=scroll_page_lines:5
+keybind = page_up=scroll_page_fractional:-0.75
+keybind = page_down=scroll_page_fractional:0.75
+
+# Tabs: Spawn & Close
+keybind = cmd+t=new_tab
+keybind = cmd+shift+w=close_surface
+
+# Tabs: Navigation
+keybind = cmd+[=previous_tab
+keybind = cmd+]=next_tab
+keybind = cmd+shift+[=move_tab:-1
+keybind = cmd+shift+]=move_tab:1
+keybind = cmd+1=goto_tab:1
+keybind = cmd+2=goto_tab:2
+keybind = cmd+3=goto_tab:3
+keybind = cmd+4=goto_tab:4
+keybind = cmd+5=goto_tab:5
+keybind = cmd+6=goto_tab:6
+keybind = cmd+7=goto_tab:7
+keybind = cmd+8=goto_tab:8
+keybind = cmd+9=goto_tab:9
+
+# Panes: Zoom
+keybind = cmd+enter=toggle_split_zoom
+
+# Panes: Navigation (Hyper = ctrl+shift+alt+cmd)
+keybind = ctrl+shift+alt+cmd+k=goto_split:top
+keybind = ctrl+shift+alt+cmd+j=goto_split:bottom
+keybind = ctrl+shift+alt+cmd+h=goto_split:left
+keybind = ctrl+shift+alt+cmd+l=goto_split:right
+
+# ---------------------------------------------------------------
+# Leader Key Chords (Hyper + Space -> Action)
+# ---------------------------------------------------------------
+# Ghostty uses the `>` symbol to chain key sequences.
+# This perfectly mimics your WezTerm Leader functionality!
+
+# Panes: Splits (Leader + h/v)
+# Note: WezTerm's "SplitVertical" stacked up/down. In Ghostty, that is "down".
+keybind = ctrl+shift+alt+cmd+space>h=new_split:down
+keybind = ctrl+shift+alt+cmd+space>v=new_split:right

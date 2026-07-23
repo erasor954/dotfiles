@@ -15,8 +15,8 @@ local GLYPH_KEY = nf.md_lightning_bolt --[[ '󱐋' ]]
 
 ---@type table<string, Cells.SegmentColors>
 local colors = {
-	default = { bg = "rgba(0,0,0,0)", fg = "#f2f2f2" },
-	scircle = { bg = "rgba(0, 0, 0, 0)", fg = "#fab387" },
+	default = { bg = "rgba(255,0,0,0)", fg = "#f2f2f2" },
+	scircle = { bg = "rgba(255, 0, 0, 0)", fg = "#fab387" },
 }
 
 local cells = Cells:new()

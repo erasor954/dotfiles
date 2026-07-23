@@ -12,8 +12,8 @@ local ICON_FOLDER = nf.md_folder
 ---@type table<string, Cells.SegmentColors>
 local colors = {
 	-- Changed to a blue/purple style for directories, but you can keep your old colors
-	cwd = { fg = "#cba6f7", bg = "rgba(0, 0, 0, 0.4)" },
-	separator = { fg = "#74c7ec", bg = "rgba(0, 0, 0, 0.4)" },
+	cwd = { fg = "#cba6f7", bg = "rgba(255, 0, 0, 0.4)" },
+	separator = { fg = "#74c7ec", bg = "rgba(255, 0, 0, 0.4)" },
 }
 
 local cells = Cells:new()

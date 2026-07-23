@@ -1,5 +1,5 @@
 local wezterm = require("wezterm")
-local colors = require("colors.dark")
+-- local colors = require("colors.dark")
 
 -- Seeding random numbers before generating for use
 -- Known issue with lua math library
@@ -27,7 +27,7 @@ function BackDrops:init()
 		current_idx = 1,
 		images = {},
 		images_dir = wezterm.config_dir .. "/backdrops/",
-		focus_color = colors.background,
+		focus_color = "rgba(255,0,0,1)",
 		focus_on = false,
 	}
 	local backdrops = setmetatable(inital, self)

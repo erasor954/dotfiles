@@ -9,7 +9,11 @@ alias grep="rg"
 
 alias dev="cd ~/Developer"
 
-alias ll="ls -l"
-alias la="ls -la"
+# alias ll="ls -l"
+# alias la="ls -la"
+alias ls="eza --group-directories-first"
+alias ll="eza -l --icons --group-directories-first"
+alias la="eza -la --icons --group-directories-first"
+alias lt="eza --tree --icons"
 
 alias inv='nvim $(fzf -m --preview="bat -n --color=always {}")'
