@@ -24,3 +24,4 @@ require("erasor.plugins.completion")
 require("erasor.plugins.lsp")
 
 require("erasor.plugins.auto_pairs")
+require("erasor.plugins.floaterm")
