@@ -1,14 +1,21 @@
-vim.pack.add({ gh("arborist-ts/arborist.nvim") })
-require("arborist").setup({
-	install_popular = false,
-	ensure_installed = {
-		"lua",
-		"javascript",
-		"typescript",
-		"html",
-		"css",
-		"java",
-		"bash",
-		"latex",
-	},
+vim.pack.add({ gh("nvim-treesitter/nvim-treesitter") })
+
+require("nvim-treesitter").install({
+	"lua",
+	"javascript",
+	"typescript",
+	"html",
+	"css",
+	"java",
+	"bash",
+	"latex",
+})
+
+vim.treesitter.language.register("bash", "zsh")
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function(args)
+		pcall(vim.treesitter.start, args.buf)
+	end,
 })
