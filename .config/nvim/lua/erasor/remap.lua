@@ -25,5 +25,5 @@ vim.keymap.set("n", "<S-Tab>", ":bprev<CR>", { desc = "Jump to prev buffer" })
 vim.keymap.set("n", "<leader>q", ":bd<CR>", { desc = "[Q]uit current buffer" })
 vim.keymap.set("n", "<leader>wq", ":w | bd<CR>", { desc = "[W]rite and [Q]uit current buffer" })
 
-vim.keymap.set("n", "H", "^")
+vim.keymap.set("n", "H", "^", { desc = "Jump to first character on line" })
 vim.keymap.set("n", "L", "$")
