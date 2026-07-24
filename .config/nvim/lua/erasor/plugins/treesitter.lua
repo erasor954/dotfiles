@@ -8,7 +8,6 @@ require("nvim-treesitter").install({
 	"css",
 	"java",
 	"bash",
-	"latex",
 })
 
 vim.treesitter.language.register("bash", "zsh")
