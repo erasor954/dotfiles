@@ -4,6 +4,7 @@ vim.keymap.set("n", "<leader>fl", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv", { desc = "Move line up" })
 
+-- Split panes
 vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "[S]plit [V]ertical" })
 vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "[S]plit [H]orizontal" })
 
@@ -27,3 +28,22 @@ vim.keymap.set("n", "<leader>wq", ":w | bd<CR>", { desc = "[W]rite and [Q]uit cu
 
 vim.keymap.set("n", "H", "^", { desc = "Jump to first character on line" })
 vim.keymap.set("n", "L", "$")
+
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+vim.keymap.set("n", "n", "nzzzv")
+vim.keymap.set("n", "N", "Nzzzv")
+
+vim.keymap.set("x", "<leader>p", '"_dP')
+vim.keymap.set("n", "<leader>d", '"_d')
+vim.keymap.set("v", "<leader>d", '"_d')
+
+vim.keymap.set("n", "<leader>y", '"+y')
+vim.keymap.set("v", "<leader>y", '"+y')
+vim.keymap.set("n", "<leader>Y", '"+Y')
+
+vim.keymap.set("n", "Q", "<nop>")
+
+vim.keymap.set("n", "<leader>sr", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
