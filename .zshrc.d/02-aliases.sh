@@ -17,3 +17,5 @@ alias la="eza -la --icons --group-directories-first"
 alias lt="eza --tree --icons"
 
 alias inv='nvim $(fzf -m --preview="bat -n --color=always {}")'
+
+alias serve="deno run --allow-net --allow-read --watch jsr:@std/http/file-server --port=3000"
