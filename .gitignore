@@ -1,1 +1,5 @@
 .config/nvim/nvim-pack-lock.json
+**/*.localz
+**/*.local
+**/*.git
+**/*.DS_Store

@@ -25,3 +25,4 @@ require("erasor.plugins.lsp")
 
 require("erasor.plugins.auto_pairs")
 require("erasor.plugins.floaterm")
+require("erasor.plugins.vimtex")

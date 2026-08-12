@@ -18,3 +18,10 @@ vim.api.nvim_create_autocmd("FileType", {
 		pcall(vim.treesitter.start, args.buf)
 	end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "tex", "latex" },
+	callback = function()
+		vim.treesitter.stop()
+	end,
+})
