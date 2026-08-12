@@ -1,8 +1,9 @@
-vim.pack.add({ gh("MeanderingProgrammer/render-markdown.nvim"), "brianhuster/live-preview.nvim" })
+vim.pack.add({ gh("MeanderingProgrammer/render-markdown.nvim"), gh("brianhuster/live-preview.nvim") })
 
 require("render-markdown").setup({
 	heading = {
 		sign = false,
+		icons = { "# ", "## ", "### ", "#### ", "##### ", "###### " },
 	},
 	code = {
 		sign = false,
