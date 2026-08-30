@@ -1,8 +1,14 @@
-vim.pack.add({ gh("windwp/nvim-autopairs") })
-vim.pack.add({ gh("windwp/nvim-ts-autotag") })
-
-require("nvim-autopairs").setup({
-	check_ts = true,
-})
-
-require("nvim-ts-autotag").setup()
+return {
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {
+			check_ts = true,
+		},
+	},
+	{
+		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
+		config = true,
+	},
+}

@@ -1,27 +1,32 @@
-vim.pack.add({ gh("nvim-treesitter/nvim-treesitter") })
+return {
+	"nvim-treesitter/nvim-treesitter",
+	build = ":TSUpdate", 
+	event = { "BufReadPost", "BufNewFile" }, 
+	config = function()
+		require("nvim-treesitter").install({
+			"lua",
+			"javascript",
+			"typescript",
+			"html",
+			"css",
+			"java",
+			"bash",
+		})
 
-require("nvim-treesitter").install({
-	"lua",
-	"javascript",
-	"typescript",
-	"html",
-	"css",
-	"java",
-	"bash",
-})
+		vim.treesitter.language.register("bash", "zsh")
 
-vim.treesitter.language.register("bash", "zsh")
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = "*",
+			callback = function(args)
+				pcall(vim.treesitter.start, args.buf)
+			end,
+		})
 
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function(args)
-		pcall(vim.treesitter.start, args.buf)
+		vim.api.nvim_create_autocmd("FileType", {
+			pattern = { "tex", "latex" },
+			callback = function()
+				vim.treesitter.stop()
+			end,
+		})
 	end,
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = { "tex", "latex" },
-	callback = function()
-		vim.treesitter.stop()
-	end,
-})
+}

@@ -1,28 +1,21 @@
--- Helper for stripping away the github part
-_G.gh = function(repo)
-	return "https://github.com/" .. repo
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-_G.cb = function(repo)
-	return "https://codeberg.org/" .. repo
-end
-
--- Theme
-require("erasor.plugins.colors")
-
--- Core
-require("erasor.plugins.treesitter")
-require("erasor.plugins.fzf")
-require("erasor.plugins.harpoon")
-
--- UI
-require("erasor.plugins.lualine")
-
--- LSP
-require("erasor.plugins.conform")
-require("erasor.plugins.completion")
-require("erasor.plugins.lsp")
-
-require("erasor.plugins.auto_pairs")
-require("erasor.plugins.floaterm")
-require("erasor.plugins.markdown")
+require("lazy").setup({
+  spec = {
+    { import = "erasor.plugins" },
+  },
+  ui = {
+    border = "rounded",
+  },
+})
