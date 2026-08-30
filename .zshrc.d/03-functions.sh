@@ -29,3 +29,22 @@ sdku() {
         echo "No installed java version found matching: $1"
     fi
 }
+
+mkjsroot() {
+    cat <<EOF >jsconfig.json
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true
+  },
+  "exclude": ["node_modules"]
+}
+EOF
+    echo "Created jsconfig.json"
+}
+
+mkroot() {
+    echo "{}" >package.json
+    echo "Create empty package.json"
+}
