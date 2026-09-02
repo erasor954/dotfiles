@@ -1,9 +1,8 @@
 return {
 	"saghen/blink.cmp",
-	dependencies = { 
-		"saghen/blink.lib"
+	dependencies = {
+		"saghen/blink.lib",
 	},
-	event = "InsertEnter", 
 	config = function()
 		local state_file = vim.fn.stdpath("data") .. "/blink_toggle_state.txt"
 

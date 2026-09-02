@@ -1,23 +1,12 @@
 return {
 	{
 		"neovim/nvim-lspconfig",
-		event = { "BufReadPre", "BufNewFile" }, 
 		dependencies = {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
-			"WhoIsSethDaniel/mason-tool-installer.nvim",
-			"saghen/blink.cmp", 
 		},
 		config = function()
 			require("mason").setup()
-
-			require("mason-tool-installer").setup({
-				ensure_installed = {
-					"stylua",
-					"shellcheck",
-					"shfmt",
-				},
-			})
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {
@@ -29,11 +18,40 @@ return {
 					"biome",
 					"texlab",
 					"bashls",
+					"clangd",
 				},
 				automatic_installation = true,
 			})
 
 			local capabilities = require("blink.cmp").get_lsp_capabilities()
+
+			vim.lsp.config("clangd", {
+				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--header-insertion=iwyu",
+					"--header-insertion-decorators",
+					"--completion-style=detailed",
+					"--function-arg-placeholders",
+					"--fallback-style=llvm",
+				},
+				filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+				root_dir = function(bufnr, on_dir)
+					local root = vim.fs.root(bufnr, {
+						".clangd",
+						".clang-tidy",
+						".clang-format",
+						"compile_commands.json",
+						"compile_flags.txt",
+						"CMakeLists.txt",
+						".git",
+					})
+					on_dir(root or vim.fn.getcwd())
+				end,
+			})
+			vim.lsp.enable("clangd")
 
 			vim.lsp.config("lua_ls", { capabilities = capabilities })
 			vim.lsp.enable("lua_ls")
@@ -90,7 +108,7 @@ return {
 			})
 
 			vim.diagnostic.config({
-				float = { border = "rounded", source = "always" },
+				float = { border = "rounded", source = true },
 			})
 
 			vim.cmd("silent! doautoall FileType")

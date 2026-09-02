@@ -11,6 +11,8 @@ return {
 			"css",
 			"java",
 			"bash",
+            "c",
+            "cpp",
 		})
 
 		vim.treesitter.language.register("bash", "zsh")

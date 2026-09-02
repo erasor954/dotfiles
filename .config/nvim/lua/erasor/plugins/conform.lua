@@ -5,9 +5,9 @@ return {
 	opts = {
 		formatters_by_ft = {
 			lua = { "stylua" },
-			java = {
-				"clang-format",
-			},
+			java = { "clang-format" },
+			c = { "clang-format" },
+			cpp = { "clang-format" },
 			sh = { "shfmt" },
 			bash = { "shfmt" },
 			html = { "biome" },
@@ -32,7 +32,8 @@ return {
 				},
 			},
 		},
-		format_after_save = {
+		format_on_save = {
+			timeout_ms = 500,
 			lsp_format = "fallback",
 		},
 	},
