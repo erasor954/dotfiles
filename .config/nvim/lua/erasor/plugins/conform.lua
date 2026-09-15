@@ -18,7 +18,7 @@ return {
 		formatters = {
 			["clang-format"] = {
 				prepend_args = {
-					"--style={BasedOnStyle: Google, IndentWidth: 4, ContinuationIndentWidth: 4}",
+					"--style={BasedOnStyle: Google, IndentWidth: 4, ContinuationIndentWidth: 4, AccessModifierOffset: -4}",
 				},
 			},
 			["biome"] = {

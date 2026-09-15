@@ -1,35 +1,8 @@
 {
-    "machine_specific": { "krbn-83d7517e-6738-448f-a4d1-6c22104fe1c2": { "external_editor_path": "/Applications/Zed.app" } },
     "profiles": [
         {
             "complex_modifications": {
                 "rules": [
-                    {
-                        "description": "Remap Cmd+Q to Cmd+W in Finder",
-                        "manipulators": [
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^com\\.apple\\.finder$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "w",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
                     {
                         "description": "Caps Lock → Hyper Key (⌃⌥⇧⌘) | Escape if alone",
                         "manipulators": [
