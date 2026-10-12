@@ -48,3 +48,25 @@ mkroot() {
     echo "{}" >package.json
     echo "Create empty package.json"
 }
+
+bwp() {
+    local session
+    session=$(security find-generic-password -a "$USER" -s "BW_SESSION" -w 2>/dev/null)
+
+    if [[ -z "$session" ]]; then
+        echo "Vault is locked. Unlocking..."
+        session=$(bw unlock --raw)
+        security add-generic-password -a "$USER" -s "BW_SESSION" -w "$session" -U
+    fi
+
+    local item_id
+    item_id=$(bw list items --session "$session" |
+        jq -r '.[] | "\(.name) ::: \(.id)"' |
+        fzf --prompt="Bitwarden > " --delimiter=" ::: " --with-nth=1 |
+        awk -F " ::: " '{print $2}')
+
+    if [[ -n "$item_id" ]]; then
+        bw get password "$item_id" --session "$session" | pbcopy
+        echo "Password copied to clipboard."
+    fi
+}

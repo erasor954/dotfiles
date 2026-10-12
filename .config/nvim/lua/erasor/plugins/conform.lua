@@ -10,10 +10,11 @@ return {
 			cpp = { "clang-format" },
 			sh = { "shfmt" },
 			bash = { "shfmt" },
-			html = { "biome" },
-			css = { "biome" },
-			javascript = { "biome" },
-			typescript = { "biome" },
+			html = { "prettier" },
+			css = { "prettier" },
+			javascript = { "prettier" },
+			typescript = { "prettier" },
+			svelte = { "prettier" },
 		},
 		formatters = {
 			["clang-format"] = {

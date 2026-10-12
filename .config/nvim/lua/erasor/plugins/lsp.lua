@@ -73,6 +73,12 @@ return {
 			})
 			vim.lsp.enable("html")
 
+			vim.lsp.config("svelte", { capabilities = capabilities })
+			vim.lsp.enable("svelte")
+
+			vim.lsp.config("tailwindcss", { capabilities = capabilities })
+			vim.lsp.enable("tailwindcss")
+
 			vim.lsp.config("cssls", { capabilities = capabilities })
 			vim.lsp.enable("cssls")
 

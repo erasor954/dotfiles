@@ -2,7 +2,7 @@
 
 alias tma="tmux new-session -A -s main"
 alias vi="nvim"
-alias vim="nvim"
+# alias vim="nvim"
 alias sdkl="sdk list java | rg 'local only'"
 alias copy="pbcopy"
 alias grep="rg"

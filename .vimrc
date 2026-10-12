@@ -1,20 +1,32 @@
-syntax on
-filetype on
+set nocompatible
+
+filetype off
+set t_vb=0
+
 set number
-set relativenumber
-
-" Enable filetype detection and indentation
 filetype plugin indent on
-
-" Use automatic indentation
-set smartindent
 set autoindent
-set cindent
-
-" Adjust tab behavior
-set tabstop=4
-set shiftwidth=4
+set smartindent
+set tabstop=2
+set shiftwidth=2
 set expandtab
+set encoding=utf-8
 
-" Optional: show matching brackets
-" set showmatch
+" Rendering
+" set ttyfast
+" set listchars=tab:▸\ ,eol:¬
+" set list
+syntax on
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+set showmatch
+
+set showmode
+set showcmd
+set backspace=indent,eol,start
+
+set visualbell
+set t_vb=
