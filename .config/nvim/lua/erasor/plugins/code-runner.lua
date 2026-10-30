@@ -1,7 +1,7 @@
-return {
-	"erasor/code-runner.nvim",
-	dev = true,
-	opts = {
-		greeting = "configured",
-	},
-}
+-- return {
+-- 	"erasor/code-runner.nvim",
+-- 	dev = true,
+-- 	opts = {
+-- 		greeting = "configured",
+-- 	},
+-- }
